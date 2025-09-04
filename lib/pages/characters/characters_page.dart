@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:harry_potter/bloc/bloc/characters_bloc.dart';
+import 'package:harry_potter/bloc/characters/characters_bloc.dart';
 import 'package:harry_potter/pages/characters/item_character.dart';
 
 class CharactersPage extends StatefulWidget {
@@ -26,7 +26,7 @@ class _CharactersPageState extends State<CharactersPage> {
                   return ListView.builder(
                     itemCount: characters.length,
                     itemBuilder: (context, index) =>
-                        ItemCharacter(charater: characters[index]),
+                        ItemCharacter(character: characters[index]),
                   );
                 default:
                   return const SizedBox();

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:harry_potter/model/book/book.dart';
+import 'package:harry_potter/model/character/character.dart';
+import 'package:harry_potter/pages/book/detail_book_page.dart';
 import 'package:harry_potter/pages/books/books_page.dart';
+import 'package:harry_potter/pages/character/detail_character_page.dart';
 import 'package:harry_potter/pages/characters/characters_page.dart';
 
 void main() {
@@ -16,7 +20,23 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const HomePage(),
+      initialRoute: '/',
+      routes: {'/': (context) => const HomePage()},
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/character':
+            final character = settings.arguments as Character;
+            return MaterialPageRoute(
+              builder: (_) => DetailCharacterPage(character: character),
+            );
+          case '/book':
+            final book = settings.arguments as Book;
+            return MaterialPageRoute(
+              builder: (_) => DetailBookPage(book: book),
+            );
+        }
+        return null;
+      },
     );
   }
 }

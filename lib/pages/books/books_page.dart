@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:harry_potter/cubit/books_cubit/books_cubit.dart';
+import 'package:harry_potter/cubit/books/books_cubit.dart';
 import 'package:harry_potter/pages/books/item_book.dart';
 
 class BooksPage extends StatefulWidget {
